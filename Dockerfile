@@ -6,7 +6,7 @@ ADD https://raw.githubusercontent.com/golang/dep/master/install.sh /tmp/dep.sh
 RUN git clone https://github.com/caddyserver/builds.git  /opt/src/src/github.com/caddyserver/builds &&\
     git clone https://github.com/mholt/caddy.git 
 RUN apt update -y && apt upgrade -y && mkdir /opt/src/bin
-RUN sh /tmp/dep.sh
+RUN sh /tmp/dep.sh && ln -s /opt/src/bin/dep /bin/dep
 RUN unzip /tmp/glide.zip -d /opt/ && mkdir /opt/bin &&\
     chmod +x /opt/linux-amd64/glide &&\ 
     ln -s /opt/linux-amd64/glide /bin/glide
