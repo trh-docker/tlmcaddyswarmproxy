@@ -5,7 +5,7 @@ ADD https://github.com/Masterminds/glide/releases/download/v0.13.2/glide-v0.13.2
 RUN git clone https://github.com/caddyserver/builds.git  /opt/src/src/github.com/caddyserver/builds &&\
     git clone https://github.com/mholt/caddy.git 
 RUN apt update -y && apt upgrade -y
-RUN unzip /tmp/glide.zip && mkdir /opt/bin && mv /tmp/linux-amd64/glide /opt/bin/
+RUN unzip /tmp/glide.zip -d /opt/ && mkdir /opt/bin && mv /opt/linux-amd64/glide /opt/bin/
 RUN cp /tmp/caddyhttp.go /opt/src/src/github.com/mholt/caddy/caddyhttp/ &&\
     cd caddy &&\
     git fetch --all --tags --prune &&\
