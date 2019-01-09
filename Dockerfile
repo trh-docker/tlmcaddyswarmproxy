@@ -3,7 +3,8 @@ WORKDIR /opt/src/src/github.com/mholt
 ADD caddyhttp/caddyhttp.go /tmp/caddyhttp.go
 RUN apt-get update && apt-get install -y gcc &&\
     go get github.com/caddyserver/builds &&\
-    go get github.com/mholt/caddy
+    go get github.com/mholt/caddy &&\
+    go get github.com/lucaslorentz/caddy-docker-proxy
 RUN cp /tmp/caddyhttp.go ${GOPATH}/src/github.com/mholt/caddy/caddyhttp/ 
 ENV GO111MODULE=on
     # cd caddy &&\
