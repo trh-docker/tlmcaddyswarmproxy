@@ -10,13 +10,13 @@ RUN cp /tmp/caddyhttp.go /opt/src/src/github.com/mholt/caddy/caddyhttp/ &&\
     git fetch --all --tags --prune &&\
     git checkout tags/v0.11.1 -b v0.11.1
 
+RUN cd caddy && go dep init && go dep ensure
+RUN cd caddy && go build -o caddy caddy.go 
+
 FROM quay.io/spivegin/golang_dart_protoc_dev AS build-env-go111
 WORKDIR /opt/src/src/github.com/CaddyWebPlugins/
 
 ENV GO111MODULE=on
-
-RUN cd caddy && go dep init && go dep ensure
-RUN cd caddy && go build -o caddy caddy.go 
 
 RUN git clone https://github.com/CaddyWebPlugins/caddystart.git &&\
     cd caddystart && go mod tidy &&\
