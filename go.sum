@@ -1,0 +1,6 @@
+github.com/hacdias/caddy-minify v0.0.0-20180227180125-45164d3fb6fb h1:ltYvQePOIIi/egGHsTCc24KH+6blUjqrRN0mEjpFhpw=
+github.com/hacdias/caddy-minify v0.0.0-20180227180125-45164d3fb6fb/go.mod h1:/0+UxRQrqYwFsMMmUE0n5yvtwEsLlwyc52+9ggEsdSw=
+github.com/tdewolff/minify v2.3.6+incompatible h1:2hw5/9ZvxhWLvBUnHE06gElGYz+Jv9R4Eys0XUzItYo=
+github.com/tdewolff/minify v2.3.6+incompatible/go.mod h1:9Ov578KJUmAWpS6NeZwRZyT56Uf6o3Mcz9CEsg8USYs=
+github.com/tdewolff/parse v2.3.4+incompatible h1:x05/cnGwIMf4ceLuDMBOdQ1qGniMoxpP46ghf0Qzh38=
+github.com/tdewolff/parse v2.3.4+incompatible/go.mod h1:8oBwCsVmUkgHO8M5iCzSIDtpzXOT0WXX9cWhz+bIzJQ=
