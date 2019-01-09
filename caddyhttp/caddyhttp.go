@@ -49,7 +49,7 @@ import (
 	// 3rd party plugins
 	// _ "github.com/caddyserver/dnsproviders/digitalocean"
 	//// docker proxy
-	//_ "github.com/lucaslorentz/caddy-docker-proxy/plugin"
+	_ "github.com/lucaslorentz/caddy-docker-proxy/plugin"
 	// minify
 	_ "github.com/hacdias/caddy-minify"
 	// CORS
