@@ -5,7 +5,7 @@ ADD https://github.com/Masterminds/glide/releases/download/v0.13.2/glide-v0.13.2
 ADD https://raw.githubusercontent.com/golang/dep/master/install.sh /tmp/dep.sh
 RUN git clone https://github.com/caddyserver/builds.git  /opt/src/src/github.com/caddyserver/builds &&\
     git clone https://github.com/mholt/caddy.git 
-RUN apt update -y && apt upgrade -y && /opt/src/bin
+RUN apt update -y && apt upgrade -y && mkdir /opt/src/bin
 RUN sh /tmp/dep.sh
 RUN unzip /tmp/glide.zip -d /opt/ && mkdir /opt/bin &&\
     chmod +x /opt/linux-amd64/glide &&\ 
