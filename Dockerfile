@@ -4,7 +4,7 @@ ADD caddyhttp/caddyhttp.go /tmp/caddyhttp.go
 RUN go get github.com/caddyserver/builds &&\
     go get github.com/mholt/caddy
 RUN cp /tmp/caddyhttp.go ${GOPATH}/src/github.com/mholt/caddy/caddyhttp/ 
-
+ENV GO111MODULE=on
     # cd caddy &&\
     # git fetch --all --tags --prune &&\
     # git checkout tags/v0.11.1 -b v0.11.1
