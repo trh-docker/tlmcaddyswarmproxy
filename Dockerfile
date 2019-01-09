@@ -11,7 +11,7 @@ RUN cp /tmp/caddyhttp.go /opt/src/src/github.com/mholt/caddy/caddyhttp/ &&\
     cd caddy && dep init &&\
     dep ensure
 
-RUN go build -o caddy caddy.go 
+RUN cd caddy && go build -o caddy caddy.go 
 
 RUN export GO111MODULE=on &&\
     mkdir -p /opt/src/src/github.com/CaddyWebPlugins/ &&\ 
