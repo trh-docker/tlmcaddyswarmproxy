@@ -8,7 +8,7 @@ RUN git clone https://github.com/caddyserver/builds.git  /opt/src/src/github.com
     git clone https://github.com/mholt/caddy.git 
 
 RUN cp /tmp/caddyhttp.go /opt/src/src/github.com/mholt/caddy/caddyhttp/ &&\
-    cd caddy && dep init &&\
+    cd caddy &&\
     dep ensure
 
 RUN cd caddy &&\
