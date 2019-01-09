@@ -19,7 +19,7 @@ RUN git clone https://github.com/mholt/caddy.git &&\
 FROM quay.io/spivegin/tlmbasedebian
 RUN mkdir -p /opt/bin
 COPY --from=build-env /opt/src/src/github.com/mholt/caddy/caddy /opt/bin/caddy
-COPY --from=build-env /opt/src/src/github.com/mholt/caddy/caddy /opt/bin/caddystart
+COPY --from=build-env /opt/src/src/github.com/CaddyWebPlugins/caddystart /opt/bin/caddystart
 WORKDIR /opt/caddy/
 RUN chmod +x /opt/bin/caddy && chmod +x /opt/bin/caddystart &&\
     chmod +x /opt/bin/caddy && chmod +x /opt/bin/caddy &&\
