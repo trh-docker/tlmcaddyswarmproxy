@@ -1,7 +1,8 @@
 FROM quay.io/spivegin/golang:v1.11.4 AS build-env-go110
 WORKDIR /opt/src/src/github.com/mholt
 ADD caddyhttp/caddyhttp.go /tmp/caddyhttp.go
-RUN go get github.com/caddyserver/builds &&\
+RUN apt-get update && apt-get install -y gcc &&\
+    go get github.com/caddyserver/builds &&\
     go get github.com/mholt/caddy
 RUN cp /tmp/caddyhttp.go ${GOPATH}/src/github.com/mholt/caddy/caddyhttp/ 
 ENV GO111MODULE=on
