@@ -9,8 +9,9 @@ RUN git clone https://github.com/caddyserver/builds.git  /opt/src/src/github.com
 
 RUN cp /tmp/caddyhttp.go /opt/src/src/github.com/mholt/caddy/caddyhttp/ &&\
     cd caddy && go mod tidy &&\
-    go get ./... &&\
-    go build -o caddy caddy.go 
+    go get ./...
+
+RUN go build -o caddy caddy.go 
 
 RUN mkdir -p /opt/src/src/github.com/CaddyWebPlugins/ &&\ 
     cd /opt/src/src/github.com/CaddyWebPlugins/ &&\
