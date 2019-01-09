@@ -8,12 +8,11 @@ RUN git clone https://github.com/caddyserver/builds.git  /opt/src/src/github.com
     git clone https://github.com/mholt/caddy.git 
 
 RUN cp /tmp/caddyhttp.go /opt/src/src/github.com/mholt/caddy/caddyhttp/ &&\
-    cd caddy && go mod tidy &&\
-    go get ./...
-
-RUN cd caddy &&\
+    cd caddy &&\
     git reset 0b83014 &&\
-    git reset --soft HEAD@{1} && git reset --hard &&\
+    git reset --soft HEAD@{1} && git reset --hard
+
+RUN cd caddy && go mod tidy &&\
     go build -o caddy caddy.go 
 
 RUN export GO111MODULE=on &&\
