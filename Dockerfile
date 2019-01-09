@@ -2,7 +2,7 @@ FROM quay.io/spivegin/golang_dart_protoc_dev AS build-env
 WORKDIR /opt/src/src/github.com/mholt
 ADD caddyhttp/caddyhttp.go /tmp/caddyhttp.go
 
-ENV GO111MODULE=on
+ENV GO111MODULE=off
 
 RUN git clone https://github.com/caddyserver/builds.git  /opt/src/src/github.com/caddyserver/builds &&\
     git clone https://github.com/mholt/caddy.git 
@@ -13,7 +13,8 @@ RUN cp /tmp/caddyhttp.go /opt/src/src/github.com/mholt/caddy/caddyhttp/ &&\
 
 RUN go build -o caddy caddy.go 
 
-RUN mkdir -p /opt/src/src/github.com/CaddyWebPlugins/ &&\ 
+RUN export GO111MODULE=on &&\
+    mkdir -p /opt/src/src/github.com/CaddyWebPlugins/ &&\ 
     cd /opt/src/src/github.com/CaddyWebPlugins/ &&\
     git clone https://github.com/CaddyWebPlugins/caddystart.git &&\
     cd caddystart && go mod tidy &&\

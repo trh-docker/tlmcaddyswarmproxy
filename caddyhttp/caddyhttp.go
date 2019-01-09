@@ -51,7 +51,7 @@ import (
 	//// docker proxy
 	//_ "github.com/lucaslorentz/caddy-docker-proxy/plugin"
 	// minify
-	//_ "github.com/hacdias/caddy-minify"
+	_ "github.com/hacdias/caddy-minify"
 	// CORS
 	//_ "github.com/captncraig/cors"
 
