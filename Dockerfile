@@ -12,8 +12,8 @@ RUN cp /tmp/caddyhttp.go /opt/src/src/github.com/mholt/caddy/caddyhttp/ &&\
     git reset 0b83014 &&\
     git reset --soft HEAD@{1} && git reset --hard
 
-RUN cd caddy && go mod tidy &&\
-    go build -o caddy caddy.go 
+RUN cd caddy && go mod tidy && go get ./...
+RUN cd caddy && go build -o caddy caddy.go 
 
 RUN export GO111MODULE=on &&\
     mkdir -p /opt/src/src/github.com/CaddyWebPlugins/ &&\ 
