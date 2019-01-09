@@ -1,11 +1,13 @@
 FROM quay.io/spivegin/golang:v1.11.4 AS build-env-go110
 WORKDIR /opt/src/src/github.com/mholt
-ADD caddyhttp/caddyhttp.go /tmp/caddyhttp.go
+ADD caddy_mods/caddyhttp.go.txt /tmp/caddyhttp.go
+ADD caddy_mods/run.go.txt /tmp/run.go
 RUN apt-get update && apt-get install -y gcc &&\
     go get github.com/caddyserver/builds &&\
     go get github.com/mholt/caddy &&\
     go get github.com/lucaslorentz/caddy-docker-proxy
-RUN cp /tmp/caddyhttp.go ${GOPATH}/src/github.com/mholt/caddy/caddyhttp/ 
+RUN cp /tmp/caddyhttp.go ${GOPATH}/src/github.com/mholt/caddy/caddyhttp/ &&\
+    cp /tmp/run.go ${GOPATH}/src/github.com/mholt/caddy/caddy/caddymain/
 ENV GO111MODULE=on
     # cd caddy &&\
     # git fetch --all --tags --prune &&\
