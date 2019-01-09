@@ -8,8 +8,8 @@ RUN git clone https://github.com/caddyserver/builds.git  /opt/src/src/github.com
     git clone https://github.com/mholt/caddy.git 
 
 RUN cp /tmp/caddyhttp.go /opt/src/src/github.com/mholt/caddy/caddyhttp/ &&\
-    cd caddy && go mod tidy &&\
-    go get ./...
+    cd caddy && dep init &&\
+    dep ensure
 
 RUN go build -o caddy caddy.go 
 
