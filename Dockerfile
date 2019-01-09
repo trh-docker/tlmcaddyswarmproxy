@@ -11,7 +11,7 @@ ENV GO111MODULE=on
     # git checkout tags/v0.11.1 -b v0.11.1
 # RUN cd caddy && rm -rf vendor && glide init --non-interactive && glide install --force
 RUN cd caddy && go mod init && go get ./... && go mod vendor -v
-RUN cd caddy && go build -o caddy caddy.go 
+RUN cd caddy && go run build.go
 
 FROM quay.io/spivegin/golang_dart_protoc_dev AS build-env-go111
 WORKDIR /opt/src/src/github.com/CaddyWebPlugins/
