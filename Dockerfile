@@ -4,7 +4,8 @@ ADD caddyhttp/caddyhttp.go /tmp/caddyhttp.go
 
 ENV GO111MODULE=on
 
-RUN git clone https://github.com/mholt/caddy.git &&\
+RUN git clone https://github.com/caddyserver/builds.git  /opt/src/src/github.com/caddyserver/builds &&\
+    git clone https://github.com/mholt/caddy.git &&\
     cp /tmp/caddyhttp.go /opt/src/src/github.com/mholt/caddy/caddyhttp/ &&\
     cd caddy && go mod tidy &&\
     go get ./... &&\
