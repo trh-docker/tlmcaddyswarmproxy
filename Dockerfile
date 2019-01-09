@@ -11,7 +11,7 @@ ENV GO111MODULE=on
     # git checkout tags/v0.11.1 -b v0.11.1
 # RUN cd caddy && rm -rf vendor && glide init --non-interactive && glide install --force
 RUN cd caddy && go mod init && go get ./... && go mod vendor -v
-RUN cd caddy && go run build.go
+RUN cd caddy/caddy && go run build.go
 
 FROM quay.io/spivegin/golang_dart_protoc_dev AS build-env-go111
 WORKDIR /opt/src/src/github.com/CaddyWebPlugins/
@@ -25,7 +25,7 @@ RUN git clone https://github.com/CaddyWebPlugins/caddystart.git &&\
 
 FROM quay.io/spivegin/tlmbasedebian
 RUN mkdir -p /opt/bin
-COPY --from=build-env-go110 /opt/src/src/github.com/mholt/caddy/caddy /opt/bin/caddy
+COPY --from=build-env-go110 /opt/src/src/github.com/mholt/caddy/caddy/caddy /opt/bin/caddy
 COPY --from=build-env-go111 /opt/src/src/github.com/CaddyWebPlugins/caddystart /opt/bin/caddystart
 WORKDIR /opt/caddy/
 RUN chmod +x /opt/bin/caddy && chmod +x /opt/bin/caddystart &&\
