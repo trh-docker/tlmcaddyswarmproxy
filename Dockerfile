@@ -31,10 +31,9 @@ RUN mkdir -p /opt/bin
 COPY --from=build-env-go110 /opt/src/src/github.com/mholt/caddy/caddy/caddy /opt/bin/caddy
 COPY --from=build-env-go111 /opt/src/src/github.com/CaddyWebPlugins/caddystart /opt/bin/caddystart
 WORKDIR /opt/caddy/
-RUN chmod +x /opt/bin/caddy && chmod +x /opt/bin/caddystart &&\
-    chmod +x /opt/bin/caddy && chmod +x /opt/bin/caddy &&\
+RUN chmod +x /opt/bin/caddy && chmod +x /opt/bin/caddystart/caddystart &&\
     ln -s /opt/bin/caddy /bin/caddy &&\
-    ln -s /opt/bin/caddy /bin/caddystar 
+    ln -s /opt/bin/caddystart/caddystart /bin/caddystart 
 ENV DEBUG=false \
     EMAIL=ssl@changeme.com \
     TESTING=true
