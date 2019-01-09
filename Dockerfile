@@ -1,4 +1,4 @@
-FROM quay.io/spivegin/golang:v1.10.7 AS build-env-go110
+FROM quay.io/spivegin/golang:v1.11.4 AS build-env-go110
 WORKDIR /opt/src/src/github.com/mholt
 ADD caddyhttp/caddyhttp.go /tmp/caddyhttp.go
 RUN go get github.com/caddyserver/builds &&\
@@ -9,7 +9,7 @@ RUN cp /tmp/caddyhttp.go ${GOPATH}/src/github.com/mholt/caddy/caddyhttp/
     # git fetch --all --tags --prune &&\
     # git checkout tags/v0.11.1 -b v0.11.1
 # RUN cd caddy && rm -rf vendor && glide init --non-interactive && glide install --force
-RUN cd caddy && rm -rf vendor && dep init && dep ensure
+RUN cd caddy && go mod init && go get ./... && go mod vendor -v
 RUN cd caddy && go build -o caddy caddy.go 
 
 FROM quay.io/spivegin/golang_dart_protoc_dev AS build-env-go111
