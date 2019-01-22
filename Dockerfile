@@ -15,6 +15,7 @@ ENV GO111MODULE=on
 RUN cd caddy && git checkout v0.11.1  &&\
     cp /tmp/run.go ${GOPATH}/src/github.com/mholt/caddy/caddy/caddymain/ &&\
     cp /tmp/commands.go ${GOPATH}/src/github.com/mholt/caddy/ &&\
+    cp /tmp/caddyhttp.go ${GOPATH}/src/github.com/mholt/caddy/caddyhttp/ &&\
     go mod init && go mod tidy
 RUN cd caddy/caddy && go run build.go
 
