@@ -2,6 +2,7 @@ FROM quay.io/spivegin/golang:v1.11.4 AS build-env-go110
 WORKDIR /opt/src/src/github.com/mholt
 ADD caddy_mods/caddyhttp.go.txt /tmp/caddyhttp.go
 ADD caddy_mods/run.go.txt /tmp/run.go
+ADD caddy_mods/commands.go.txt /tmp/commands.go
 RUN apt-get update && apt-get install -y gcc &&\
     go get github.com/caddyserver/builds &&\
     go get github.com/mholt/caddy
@@ -13,6 +14,7 @@ ENV GO111MODULE=on
 # RUN cd caddy && rm -rf vendor && glide init --non-interactive && glide install --force
 RUN cd caddy && git checkout v0.11.1  &&\
     cp /tmp/run.go ${GOPATH}/src/github.com/mholt/caddy/caddy/caddymain/ &&\
+    cp /tmp/commands.go ${GOPATH}/src/github.com/mholt/caddy/ &&\
     go mod init && go mod tidy
 RUN cd caddy/caddy && go run build.go
 
