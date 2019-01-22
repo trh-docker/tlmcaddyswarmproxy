@@ -28,11 +28,11 @@ import (
 	_ "github.com/mholt/caddy/caddyhttp/fastcgi"
 	_ "github.com/mholt/caddy/caddyhttp/gzip"
 	_ "github.com/mholt/caddy/caddyhttp/header"
-	_ "github.com/mholt/caddy/caddyhttp/index"
+	//_ "github.com/mholt/caddy/caddyhttp/index"
 	_ "github.com/mholt/caddy/caddyhttp/internalsrv"
 	_ "github.com/mholt/caddy/caddyhttp/limits"
 	_ "github.com/mholt/caddy/caddyhttp/log"
-	_ "github.com/mholt/caddy/caddyhttp/markdown"
+	//_ "github.com/mholt/caddy/caddyhttp/markdown"
 	_ "github.com/mholt/caddy/caddyhttp/mime"
 	_ "github.com/mholt/caddy/caddyhttp/pprof"
 	_ "github.com/mholt/caddy/caddyhttp/proxy"
@@ -48,10 +48,10 @@ import (
 	_ "github.com/mholt/caddy/onevent"
 	// 3rd party plugins
 	// _ "github.com/caddyserver/dnsproviders/digitalocean"
-	//// docker proxy
-	_ "github.com/lucaslorentz/caddy-docker-proxy/plugin"
+	// docker proxy
+	//_ "github.com/lucaslorentz/caddy-docker-proxy/plugin"
 	// minify
-	_ "github.com/hacdias/caddy-minify"
+	//_ "github.com/hacdias/caddy-minify"
 	// CORS
 	//_ "github.com/captncraig/cors"
 

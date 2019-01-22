@@ -36,8 +36,6 @@ import (
 	"github.com/mholt/caddy/caddytls"
 	// This is where other plugins get plugged in (imported)
 
-	// CADDY-DOCKER-PROXY
-	_ "github.com/lucaslorentz/caddy-docker-proxy/plugin"
 )
 
 func init() {

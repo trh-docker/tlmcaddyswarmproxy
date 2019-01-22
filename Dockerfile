@@ -4,9 +4,7 @@ ADD caddy_mods/caddyhttp.go.txt /tmp/caddyhttp.go
 ADD caddy_mods/run.go.txt /tmp/run.go
 RUN apt-get update && apt-get install -y gcc &&\
     go get github.com/caddyserver/builds &&\
-    go get github.com/mholt/caddy &&\
-    go get github.com/lucaslorentz/caddy-docker-proxy &&\
-    go get github.com/xenolf/lego/acme
+    go get github.com/mholt/caddy
 # RUN cp /tmp/caddyhttp.go ${GOPATH}/src/github.com/mholt/caddy/caddyhttp/ &&\
 ENV GO111MODULE=on
     # cd caddy &&\
@@ -15,7 +13,7 @@ ENV GO111MODULE=on
 # RUN cd caddy && rm -rf vendor && glide init --non-interactive && glide install --force
 RUN cd caddy && git checkout v0.11.1  &&\
     cp /tmp/run.go ${GOPATH}/src/github.com/mholt/caddy/caddy/caddymain/ &&\
-    go mod init && go get ./...
+    go mod init && go mod tidy
 RUN cd caddy/caddy && go run build.go
 
 FROM quay.io/spivegin/golang_dart_protoc_dev AS build-env-go111
